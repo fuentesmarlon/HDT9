@@ -1,5 +1,6 @@
 
-import java.util.HashSet;
+import java.util.HashMap;
+
 import java.util.Set;
 
 /*
@@ -13,14 +14,11 @@ import java.util.Set;
  * @author Marlon
  */
 public class Factory<E> {
-    public Set<E> makeFactory(String tipoImplementacion){
-        Set<E> implementacion=null;
-        if(tipoImplementacion.equals("Hashing")){
-            implementacion =    new HashSet<E>();
-        }
-        if(tipoImplementacion.equals("")){
-            
-        }
-        return implementacion;
+    public Set<E>Factory(String tipoImplementacion){
+            Set<E> implementacion= null;
+            if(tipoImplementacion.equals("Hash")){
+                implementacion = (Set<E>) new HashMap();
+            }
+            return implementacion;
     }
 }
