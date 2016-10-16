@@ -1,6 +1,6 @@
 // A class for binding key/value pairs.
 // (c) 1998,2001 duane a. bailey
-package structure5;
+
 import java.util.Map;
 
 /*
@@ -41,11 +41,12 @@ public class Association<K,V> implements Map.Entry<K,V>
     /**
      * The immutable key.  An arbitrary object.
      */
-    protected K theKey; // the key of the key-value pair
+    protected K Key; // the key of the key-value pair
     /**
      * The mutable value.  An arbitrary object.
      */
-    protected V theValue; // the value of the key-value pair
+    protected V Value; // the value of the key-value pair
+
 
     /*
       for example:
@@ -60,12 +61,11 @@ public class Association<K,V> implements Map.Entry<K,V>
      * @param key A non-null object.
      * @param value A (possibly null) object.
      */
-    public Association(K key, V value)
-    {
-        Assert.pre(key != null, "Key must not be null.");
-        theKey = key;
-        theValue = value;
+    public Association(K Key, V Value) {
+        this.Key = Key;
+        this.Value = Value;
     }
+
 
     /**
      * Constructs a pair from a key; value is null.
@@ -113,7 +113,7 @@ public class Association<K,V> implements Map.Entry<K,V>
      */
     public V getValue()
     {
-        return theValue;
+        return Value;
     }
 
     /**
@@ -124,7 +124,7 @@ public class Association<K,V> implements Map.Entry<K,V>
      */
     public K getKey()
     {
-        return theKey;
+        return Key;
     }
 
     /**
@@ -135,8 +135,8 @@ public class Association<K,V> implements Map.Entry<K,V>
      */
     public V setValue(V value)
     {
-        V oldValue = theValue;
-        theValue = value;
+        V oldValue = Value;
+        Value = value;
         return oldValue;
     }
 
