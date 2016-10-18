@@ -1,24 +1,29 @@
+package paquete;
 
-import java.util.HashMap;
+import java.awt.PageAttributes.MediaType;
 
-import java.util.Set;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+public class Factory {
 
-/**
- *
- * @author Marlon
- */
-public class Factory<E> {
-    public Set<E>Factory(String tipoImplementacion){
-            Set<E> implementacion= null;
-            if(tipoImplementacion.equals("Hash")){
-                implementacion = (Set<E>) new HashMap();
-            }
-            return implementacion;
-    }
+	//Patron de Diseño Singleton
+	private static Factory instancia;
+	public static Factory getInstancia(){
+		if(instancia==null)
+			instancia= new Factory();
+		return instancia;
+	}
+	
+	public static <K extends Comparable<K>,V> MapComparable<K, V> getImplementacion(String imp){
+		
+		switch(imp){
+			case "RBT": 
+				return new RedBlackTree<>();
+			case "Hash": 
+				return new Hash<>();
+			default:
+				return null;
+
+		}
+	}
+	
 }

@@ -1,8 +1,3 @@
-// A class for binding key/value pairs.
-// (c) 1998,2001 duane a. bailey
-
-import java.util.Map;
-
 /*
 public class Association<K,V>
 */
@@ -36,123 +31,69 @@ public class Association<K,V>
  * @author, 2001 duane a. bailey
  */
 
-public class Association<K,V> implements Map.Entry<K,V>
-{
-    /**
-     * The immutable key.  An arbitrary object.
-     */
-    protected K Key; // the key of the key-value pair
-    /**
-     * The mutable value.  An arbitrary object.
-     */
-    protected V Value; // the value of the key-value pair
+
+/*
+ * UVG
+ * Algoritmos y Estructura de Datos
+ * HT 9 - Diccionario v2
+ * Autores:
+ * 		Davis Alvarez -15842
+ * 		Osiris Fuentes - 15240
+ * 
+ * GIT: 
+*/	
+
+package paquete;
+
+import java.util.Map;
+
+public class Association <K, V> implements Map.Entry<K, V> {
+	
+	protected K key;
+	protected V value;
+	
+
+	public Association(K key, V value){
+		this.key = key;
+		this.value = value;
+	}
+	
+	public Association(K key){ 
+		this(key,null); 
+	}
+
+	public boolean equals(Object otro){
+		Association otraAssoc = (Association)otro;
+		return getKey().equals(otraAssoc.getKey());
+	}
+
+	public int hashCode(){ 
+		return getKey().hashCode(); 
+	}
+	
+
+	public V getValue(){ 
+		return this.value; 
+	}
+	
+	public K getKey(){ 
+		return this.key; 
+	}
 
 
-    /*
-      for example:
-      Association<String,Integer> personAttribute =
-         new Assocation<String,Integer>("Age",34);
-     */
-    /**
-     * Constructs a pair from a key and value.
-     *
-     * @pre key is non-null
-     * @post constructs a key-value pair
-     * @param key A non-null object.
-     * @param value A (possibly null) object.
-     */
-    public Association(K Key, V Value) {
-        this.Key = Key;
-        this.Value = Value;
-    }
-
-
-    /**
-     * Constructs a pair from a key; value is null.
-     *
-     * @pre key is non-null
-     * @post constructs a key-value pair; value is null
-     * @param key A non-null key value.
-     */
-    public Association(K key)
+	public V setValue(V value)
     {
-        this(key,null);
-    }
-
-    /**
-     * Standard comparison function.  Comparison based on keys only.
-     *
-     * @pre other is non-null Association
-     * @post returns true iff the keys are equal
-     * @param other Another association.
-     * @return true iff the keys are equal.
-     */
-    public boolean equals(Object other)
-    {
-        Association otherAssoc = (Association)other;
-        return getKey().equals(otherAssoc.getKey());
-    }
-    
-    /**
-     * Standard hashcode function.
-     *
-     * @post return hash code association with this association
-     * @return A hash code for association.
-     * @see Hashtable
-     */
-    public int hashCode()
-    {
-        return getKey().hashCode();
-    }
-    
-    /**
-     * Fetch value from association.  May return null.
-     *
-     * @post returns value from association
-     * @return The value field of the association.
-     */
-    public V getValue()
-    {
-        return Value;
-    }
-
-    /**
-     * Fetch key from association.  Should not return null.
-     *
-     * @post returns key from association
-     * @return Key of the key-value pair.
-     */
-    public K getKey()
-    {
-        return Key;
-    }
-
-    /**
-     * Sets the value of the key-value pair.
-     *
-     * @post sets association's value to value
-     * @param value The new value.
-     */
-    public V setValue(V value)
-    {
-        V oldValue = Value;
-        Value = value;
+        V oldValue = this.value;
+        this.value = value;
         return oldValue;
     }
-
-    /**
-     * Standard string representation of an association.
-     *
-     * @post returns string representation
-     * @return String representing key-value pair.
-     */
-    public String toString()
+	
+	public String toString()
     {
         StringBuffer s = new StringBuffer();
         s.append("<Association: "+getKey()+"="+getValue()+">");
         return s.toString();
     }
-    /*
-...
-*/
+
+
 }

@@ -1,41 +1,21 @@
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-
-/**
-*
-* @author Marlon
-*/
+/*
+ * UVG
+ * Algoritmos y Estructura de Datos
+ * HT 9 - Diccionario v2
+ * Autores:
+ * 		Davis Alvarez -15842
+ * 		Osiris Fuentes - 15240
+ * 
+ * GIT: 
+*/	
+package paquete;
 
 public class Principal {
-    public static void main(String[] args) {
-        
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Bienvenido"+"\nElija la implementacion (colocar Hash o ):"+"\n1) Hash"+"\n2) ");
-        String operacion = scan.nextLine();
-        Factory fabrica = new Factory();
-        while(!operacion.equals("1") && !operacion.equals("2") && !operacion.equals("Hash")){
-            System.out.println("Bienvenido"+"\nElija la implementacion (colocar Hash o ):"+"\n1) Hash"+"\n2) ");
-            operacion = scan.nextLine();
-        }
-        if(operacion.equals("Hash")||operacion.equals("1")){
-           
-            
-        }
-        if(operacion.equals("")|| operacion.equals("2")){
-            
-        }
-       
-            
-            
-        
-    
-}
-}
 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Menu m = new Menu();
+		m.menuPrinciapal();
+	}
+
+}
